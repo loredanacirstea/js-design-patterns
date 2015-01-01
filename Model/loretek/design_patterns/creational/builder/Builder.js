@@ -1,16 +1,15 @@
 var Director = Class({
     create: function() {
         this.created = true;
-    }
+    },
     Construct: function(){
-    	return 
     }
 });
 
 var Builder = Class({
 	create: function() {
         this.created = true;
-    }
+    },
     BuildPart: function(){
 
     }
@@ -19,10 +18,10 @@ var Builder = Class({
 var ConcreteBuilder = Builder.extend({
 	create: function() {
         this.created = true;
-    }
+    },
     BuildPart: function(){
 
-    }
+    },
     get:{
     	GetResult: function(){
     		return '';

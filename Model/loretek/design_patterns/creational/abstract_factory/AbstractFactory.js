@@ -18,7 +18,7 @@ var AbstractFactory = Class({
     },
     createProductA: function(){
         //this.productA = new AbstractProductA();
-    }
+    },
     createProductB: function(){
         //this.productB = new AbstractProductB();
     }
