@@ -13,7 +13,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/theme-chrome.js"></script>
 
-    <script type="text/javascript" src="jsclass/dist/browser/js.class.min.js"></script>
+    <script type="text/javascript" src="lib/jsclass/browser/js.class.min.js"></script>
     <script type="text/javascript" src="Model/loretek/design_patterns/creational/abstract_factory/AbstractFactory.js"></script>
     <script type="text/javascript" src="Model/loretek/design_patterns/creational/builder/Builder.js"></script>
     <script type="text/javascript" src="Model/loretek/design_patterns/creational/factory/Factory.js"></script>
@@ -38,31 +38,31 @@
     <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/template_method/TemplateMethod.js"></script>
     <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/visitor/Visitor.js"></script>
     <style type="text/css" media="screen">
-	    .editor { 
-	    	min-height: 200px;
-			min-width: 150px;
-			padding-bottom: 5px;
-			margin-bottom: 15px;
-			margin-top: 15px;
-	    }
-	</style>
-	<script>
+        .editor { 
+            min-height: 200px;
+            min-width: 150px;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+    </style>
+    <script>
     var get_source = function(main_dir, dir, file){
-	    var url = "https://raw.githubusercontent.com/loredanacirstea/js-design-patterns/master/generated/Model/loretek/design_patterns/" + main_dir + "/" + dir + "/" + file + ".js";
-	    console.log(url);
-	    $.get({
-			url: url,
-			dataType: "script",
-			success: function(data){
-			  	var editor = ace.edit("editor_"+file);
-			    editor.setTheme("ace/theme/chrome");
-			    editor.getSession().setMode("ace/mode/javascript");
-			    editor.getSession().setUseWrapMode(true);
-			    editor.setReadOnly(true);
-			    editor.setValue(data);
-			}
-		});
-	}
+        //var url = "https://raw.githubusercontent.com/loredanacirstea/js-design-patterns/gh-pages/Model/loretek/design_patterns/" + main_dir + "/" + dir + "/" + file + ".js";
+        var url = "Model/loretek/design_patterns/" + main_dir + "/" + dir + "/" + file + ".js";
+        $.ajax({
+            url: url,
+            dataType: "script",
+            success: function(data){
+                var editor = ace.edit("editor_"+file);
+                editor.setTheme("ace/theme/chrome");
+                editor.getSession().setMode("ace/mode/javascript");
+                editor.getSession().setUseWrapMode(true);
+                editor.setReadOnly(true);
+                editor.setValue(data);
+            }
+        });
+    }
     </script>
 
     <!--[if lt IE 9]>
