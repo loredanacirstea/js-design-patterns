@@ -13,10 +13,10 @@ var ConcreteProduct = Product.extend({
 var Creator = Class({
     create: function() {
         this.created = true;
-    }
+    },
     FactoryMethod: function(){
 
-    }
+    },
     AnOperation: function(){
 
     }
@@ -25,7 +25,7 @@ var Creator = Class({
 var ConcreteCreator = Creator.extend({
 	create: function() {
         this.created = true;
-    }
+    },
     FactoryMethod: function(){
     	this.product = new ConcreteProduct();
     }

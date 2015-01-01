@@ -1,7 +1,7 @@
 var Prototype = Class({
     create: function() {
         this.created = true;
-    }
+    },
     Clone: function(){
     }
 });
@@ -9,7 +9,7 @@ var Prototype = Class({
 var ConcretePrototype1 = Prototype.extend({
 	create: function() {
         this.created = true;
-    }
+    },
     Clone: function(){
     	return this;
     }
@@ -18,7 +18,7 @@ var ConcretePrototype1 = Prototype.extend({
 var ConcretePrototype2 = Prototype.extend({
 	create: function() {
         this.created = true;
-    }
+    },
     Clone: function(){
     	return this;
     }
