@@ -12,15 +12,12 @@ var Adaptee = Class({
         this.created = true;
     },
     SpecificRequest: function(param){
-    	return result;
+        return result;
     }
 });
 
 var Adapter = Class({
     Request: function(param){
-    	Adaptee.prototype.SpecificRequest(param);
+        Adaptee.prototype.SpecificRequest(param);
     }
 }).mixin(Target, Adaptee);
-
-
-

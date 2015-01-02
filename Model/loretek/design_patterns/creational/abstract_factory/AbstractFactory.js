@@ -47,4 +47,3 @@ var ConcreteFactory2 = AbstractFactory.extend({
         this.product = new ProductB();
     }
 });
-

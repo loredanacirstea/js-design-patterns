@@ -7,19 +7,19 @@ var Prototype = Class({
 });
 
 var ConcretePrototype1 = Prototype.extend({
-	create: function() {
+    create: function() {
         this.created = true;
     },
     Clone: function(){
-    	return this;
+        return this;
     }
 });
 
 var ConcretePrototype2 = Prototype.extend({
-	create: function() {
+    create: function() {
         this.created = true;
     },
     Clone: function(){
-    	return this;
+        return this;
     }
 });

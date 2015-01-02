@@ -23,14 +23,10 @@ var Creator = Class({
 });
 
 var ConcreteCreator = Creator.extend({
-	create: function() {
+    create: function() {
         this.created = true;
     },
     FactoryMethod: function(){
-    	this.product = new ConcreteProduct();
+        this.product = new ConcreteProduct();
     }
 });
-
-
-
-

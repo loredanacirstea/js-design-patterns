@@ -7,7 +7,7 @@ var Director = Class({
 });
 
 var Builder = Class({
-	create: function() {
+    create: function() {
         this.created = true;
     },
     BuildPart: function(){
@@ -16,20 +16,16 @@ var Builder = Class({
 });
 
 var ConcreteBuilder = Builder.extend({
-	create: function() {
+    create: function() {
         this.created = true;
     },
     BuildPart: function(){
 
     },
     get:{
-    	GetResult: function(){
-    		return '';
-    	}
+        GetResult: function(){
+            return '';
+        }
 
     }
 });
-
-
-
-
