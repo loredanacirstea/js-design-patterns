@@ -59,7 +59,7 @@
                 editor.getSession().setMode("ace/mode/javascript");
                 editor.getSession().setUseWrapMode(true);
                 editor.setReadOnly(true);
-                editor.setValue(disclaimer+data);
+                editor.setValue(disclaimer+data,-1);
             },
             error: function(data){
                 var editor = ace.edit("editor_"+file);
@@ -67,7 +67,7 @@
                 editor.getSession().setMode("ace/mode/javascript");
                 editor.getSession().setUseWrapMode(true);
                 editor.setReadOnly(true);
-                editor.setValue(disclaimer+"//Not yet");
+                editor.setValue(disclaimer+"//Not yet",-1);
             }
         });
     }
