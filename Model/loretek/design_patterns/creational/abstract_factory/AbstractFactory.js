@@ -57,10 +57,10 @@ var AbstractProductA = Class({
         this.product = null;
         switch(product){
             case "ProductA1":
-                this.product = new ProductA1;
+                this.product = new ProductA1();
                 break;
             case "ProductA1":
-                this.product = new ProductA2;
+                this.product = new ProductA2();
                 break;
         }
         return this.product;
@@ -73,10 +73,10 @@ var AbstractProductB = Class({
         this.product = null;
         switch(product){
             case "ProductB1":
-                this.product = new ProductB1;
+                this.product = new ProductB1();
                 break;
             case "ProductB1":
-                this.product = new ProductB2;
+                this.product = new ProductB2();
                 break;
         }
         return this.product;
