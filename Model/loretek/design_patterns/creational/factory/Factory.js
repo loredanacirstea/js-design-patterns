@@ -1,32 +1,37 @@
 var Product = Class({
     create: function() {
-        this.created = true;
     }
 });
 
 var ConcreteProduct = Product.extend({
     create: function() {
-        this.created = true;
+        facade.log('ConcreteProduct created')
     }
 });
 
 var Creator = Class({
     create: function() {
-        this.created = true;
     },
     FactoryMethod: function(){
 
     },
     AnOperation: function(){
-
+        facade.log("AnOperation()")
+        this.product = this.FactoryMethod()
+        facade.log(this.product instanceof ConcreteProduct)
     }
 });
 
 var ConcreteCreator = Creator.extend({
     create: function() {
-        this.created = true;
+        facade.log('ConcreteCreator created')
     },
     FactoryMethod: function(){
-        this.product = new ConcreteProduct();
+        return new ConcreteProduct();
     }
 });
+
+function init_FactoryMethod() {
+    var factory = new ConcreteCreator()
+    factory.AnOperation()
+}

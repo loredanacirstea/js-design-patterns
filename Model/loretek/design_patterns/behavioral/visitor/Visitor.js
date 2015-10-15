@@ -1,6 +1,5 @@
 var Visitor = Class({
     create: function(){
-        facade.log("Visitor class created:");
     },
     VisitConcreteElementA: function(ConcreteElementA){
     },
@@ -10,9 +9,7 @@ var Visitor = Class({
 
 var ConcreteVisitor1 = Visitor.extend({
     create: function(){
-        this.name = "ConcreteVisitor1";
-        Visitor.prototype.create();
-        facade.log("ConcreteVisitor1");
+        facade.log("ConcreteVisitor1 created");
     },
     VisitConcreteElementA: function(ConcreteElementA){
         facade.log("ConcreteVisitor1 visited ConcreteElementA");
@@ -24,9 +21,7 @@ var ConcreteVisitor1 = Visitor.extend({
 
 var ConcreteVisitor2 = Visitor.extend({
     create: function(){
-        this.name = "ConcreteVisitor2";
-        Visitor.prototype.create();
-        facade.log("ConcreteVisitor2");
+        facade.log("ConcreteVisitor2 created");
     },
     VisitConcreteElementA: function(ConcreteElementA){
         facade.log("ConcreteVisitor2 visited ConcreteElementA");
@@ -38,22 +33,22 @@ var ConcreteVisitor2 = Visitor.extend({
 
 var ObjectStructure = Class({
     create: function(){
-        facade.log("ObjectStructure class created");
+        facade.log("ObjectStructure created");
     }
 });
 
 var Element = Class({
     create: function(){
-        facade.log("Element class created");
     },
     Accept: function(visitor){
-        facade.log("Element class has accepted the "+ visitor.name +" visitor");
     }
 });
 
 var ConcreteElementA = Element.extend({
+    create: function() {
+        facade.log("ConcreteElementA created");
+    },
     Accept: function(visitor){
-        Element.prototype.Accept(visitor);
         visitor.VisitConcreteElementA(this);
     },
     OperationA: function(){
@@ -62,11 +57,22 @@ var ConcreteElementA = Element.extend({
 });
 
 var ConcreteElementB = Element.extend({
+    create: function() {
+        facade.log("ConcreteElementB created");
+    },
     Accept: function(visitor){
-        Element.prototype.Accept(visitor);
         visitor.VisitConcreteElementB(this);
     },
     OperationB: function(){
         facade.log("ConcreteElementB OperationB");  
     }
 });
+
+function init_Visitor() {
+    visitor1 = new ConcreteVisitor1();
+    visitor2 = new ConcreteVisitor2();
+    elementA = new ConcreteElementA();
+    elementB = new ConcreteElementB();
+    elementA.Accept(visitor1);
+    elementB.Accept(visitor2);
+}

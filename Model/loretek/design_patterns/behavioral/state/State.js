@@ -1,16 +1,23 @@
-var Context = Class({
+var Contextt = Class({
     create: function(state){
-        this.created = true;
-        this.state = state;
+        switch(state) {
+            case "A":
+                this.state = new ConcreteStateA()
+                break
+            case "B":
+                this.state = new ConcreteStateB()
+                break
+            default:
+                this.state = new ConcreteStateA()
+        }
     },
     Request: function(){
-        this.state.Handle();
+        this.state.Handle(this);
     }
 });
 
 var State = Class({
     create: function(){
-        this.created = true;
     },
     Handle: function(){
     }
@@ -18,16 +25,23 @@ var State = Class({
 
 var ConcreteStateA = State.extend({
     create: function(){
-        this.created = true;
+        facade.log('ConcreteStateA created')
     },
     Handle: function(){
+        facade.log('ConcreteStateA handle')
     }
 });
 
 var ConcreteStateB = State.extend({
     create: function(){
-        this.created = true;
+        facade.log('ConcreteStateB created')
     },
     Handle: function(){
+        facade.log('ConcreteStateB handle')
     }
 });
+
+function init_State() {
+    context = new Contextt("A")
+    context.Request()
+}

@@ -1,40 +1,40 @@
 var Subject = Class({
     create: function() {
-        this.created = true;
-        this.observers = [];
     },
     Attach: function(Observer){
         this.observers.push(Observer);
+        facade.log('Observer attached')
     },
     Dettach: function(Observer){
-
+        for(var i in this.observers)
+            if(this.observers[i] === Observer)
+                this.observers.splice(i, 1)
     },
     Notify: function(){
-        for(var o in this.observers){
-            observers[o].Update();
+        facade.log('Subject Notify')
+        for(var i in this.observers){
+            this.observers[i].Update(this);
         }
     }
 });
 
 var ConcreteSubject = Subject.extend({
     create: function(){
-        this.subjectState = '';
+        this.subjectState = null
+        this.observers = []
+        facade.log('ConcreteSubject created')
     },
-    get:{
-        GetState: function(){
-            return this.subjectState;
-        }
+    GetState: function(){
+        return this.subjectState;
     },
-    set:{
-        setState: function(state){
-            this.subjectState = state;
-        }
+    SetState: function(state){
+        this.subjectState = state;
+        this.Notify()
     }
 });
 
 var Observer = Class({
     create: function(){
-        this.created = true;
     },
     Update: function(){
     }
@@ -42,10 +42,20 @@ var Observer = Class({
 
 var ConcreteObserver = Observer.extend({
     create: function(){
-        this.created = true;
         this.observerState = '';
+        facade.log('ConcreteObserver created')
     },
     Update: function(Subject){
         this.observerState = Subject.GetState();
+        facade.log('Observer new state: ' + this.observerState)
     }
 });
+
+function init_Observer() {
+    var observer1 = new ConcreteObserver()
+    var observer2 = new ConcreteObserver()
+    var subject = new ConcreteSubject()
+    subject.Attach(observer1)
+    subject.Attach(observer2)
+    subject.SetState('state 1')
+}

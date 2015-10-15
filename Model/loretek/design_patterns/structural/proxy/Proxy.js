@@ -1,20 +1,30 @@
 var Subject = Class({
     create: function() {
-        this.created = true;
     },
     Request: function(){
     }
 });
 
 var RealSubject = Subject.extend({
+    create: function() {
+        facade.log('RealSubject created')
+    },
     Request: function(){
-        return '';
+        facade.log('RealSubject handles request')
     }
 });
 
 var Proxy = Subject.extend({
+    create: function() {
+        facade.log('Proxy created')
+    },
     Request: function(){
-        var realSubject = new RealSubject();
-        realSubject.Request();
+        this.realSubject = new RealSubject();
+        this.realSubject.Request();
     }
 });
+
+function init_Proxy() {
+    var proxy = new Proxy()
+    proxy.Request()
+}

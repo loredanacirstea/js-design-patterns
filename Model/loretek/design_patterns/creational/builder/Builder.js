@@ -3,50 +3,45 @@ var Director = Class({
         this.structure = ['Maze','Wall','Door'];
         facade.log("Director class created");
     },
-    Construct: function(concreteBuilder){
-        builder = new Builder(concreteBuilder);
-        facade.log("New " + concreteBuilder + " created");
+    Construct: function(){
         for(var all in this.structure){
+            builder = new ConcreteBuilder();
             builder.BuildPart(this.structure[all]);
+            builder.GetResult()
         }
     }
 });
 
 var Builder = Class({
-    create: function(concreteBuilder) {
-        facade.log("Builder class created");
-        switch(concreteBuilder){
-            case "ConcreteBuilder1":
-                this.builder = new ConcreteBuilder1();
-                break;
-            case "ConcreteBuilder2":
-                this.builder = new ConcreteBuilder2();
-                break;
-        }
+    create: function() {
     },
-    BuildPart: function(part){
-        this.builder.BuildPart(part);
+    BuildPart: function(){
     }
 });
 
-var ConcreteBuilder1 = Builder.extend({
+var ConcreteBuilder = Builder.extend({
     create: function() {
         facade.log("ConcreteBuilder1 class created");
-        this.parts = [];
     },
-    BuildPart: function(part){
-        this.parts[part] = part + " constructed";
+    BuildPart: function(rawmaterial){
+        facade.log("ConcreteBuilder BuildPart()");
+        material = rawmaterial
+        this.product = new Product(material)
     },
-    get:{
-        GetResult: function(){
-            return this.parts;
-        }
-
+    GetResult: function(){
+        facade.log(JSON.stringify(this.product))
+        return this.product
     }
 });
 
 var Product = new Class({
-    created: function(){
+    create: function(material){
+        this.data = material
         facade.log("Product class created");
     }
 });
+
+function init_Builder() {
+    director = new Director()
+    director.Construct()
+}

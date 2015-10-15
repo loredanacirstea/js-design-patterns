@@ -1,85 +1,47 @@
 var AbstractFactory = Class({
     create: function(factory) {
-        facade.log("AbstractFactory class created");
-        this.name = factory;
-        switch(factory){
-            case "ConcreteFactory1":
-                this.factory = ConcreteFactory1.instance();
-                break;
-            case "ConcreteFactory2":
-                this.factory = ConcreteFactory2.instance();
-                break;
-        }
     },
     createProductA: function(){
-        facade.log("AbstractFactory calls " + this.name + " to createProductA");
-        return this.factory.createProductA();
     },
     createProductB: function(){
-        facade.log("AbstractFactory calls " + this.name + " to createProductB");
-        return this.factory.createProductB();
     }
 });
 
 var ConcreteFactory1 = AbstractFactory.extend({
-    singleton: true,
     create: function(){
         facade.log("ConcreteFactory1 class created");
     },
     createProductA: function(){        
-        facade.log("ProductA created by ConcreteFactory1");
-        return new AbstractProductA("ProductA1");
+        facade.log("ProductA1 created by ConcreteFactory1");
+        return new ProductA1()
     },
     createProductB: function(){
-        facade.log("ProductB created by ConcreteFactory1");
-        return new AbstractProductB("ProductB1");
+        facade.log("ProductB1 created by ConcreteFactory1");
+        return new ProductB1()
     }
 });
 
 var ConcreteFactory2 = AbstractFactory.extend({
-    singleton: true,
     create: function(){
         facade.log("ConcreteFactory2 class created");
     },
     createProductA: function(){
-        facade.log("ProductA created by ConcreteFactory2");
-        return new AbstractProductA("ProductA2");
+        facade.log("ProductA2 created by ConcreteFactory2");
+        return new ProductA2()
     },
     createProductB: function(){
-        facade.log("ProductB created by ConcreteFactory2");
-        return new AbstractProductB("ProductB2");
+        facade.log("ProductB2 created by ConcreteFactory2");
+        return new ProductB2()
     }
 });
 
 var AbstractProductA = Class({
-    create: function(product) {
-        facade.log("AbstractProductA class created");
-        this.product = null;
-        switch(product){
-            case "ProductA1":
-                this.product = new ProductA1();
-                break;
-            case "ProductA1":
-                this.product = new ProductA2();
-                break;
-        }
-        return this.product;
+    create: function() {
     }
 });
 
 var AbstractProductB = Class({
-    create: function(product) {
-        facade.log("AbstractProductB class created");
-        this.product = null;
-        switch(product){
-            case "ProductB1":
-                this.product = new ProductB1();
-                break;
-            case "ProductB1":
-                this.product = new ProductB2();
-                break;
-        }
-        return this.product;
+    create: function() {
     }
 });
 
@@ -107,3 +69,11 @@ var ProductB2 = AbstractProductB.extend({
         facade.log("ProductB2 class created");
     }
 });
+
+function init_AbstractFactory() {
+    var factory1 = new ConcreteFactory1()
+    var productB1 = factory1.createProductB()
+    
+    var factory2 = new ConcreteFactory2()
+    var productA2 = factory2.createProductA()
+}

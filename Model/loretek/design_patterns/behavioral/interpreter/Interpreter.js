@@ -21,3 +21,7 @@ var NonterminalExpression = AbstractExpression.extend({
 	Interpret: function(Context){
     }
 });
+
+function init_Interpreter() {
+    facade.log('Not implemented')
+}

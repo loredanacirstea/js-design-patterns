@@ -1,6 +1,5 @@
 var Target = Class({
     create: function() {
-        this.created = true;
     },
     Request: function(){
     }
@@ -9,15 +8,24 @@ var Target = Class({
 
 var Adaptee = Class({
     create: function() {
-        this.created = true;
+        facade.log('Adaptee created')
     },
-    SpecificRequest: function(param){
-        return result;
+    SpecificRequest: function(){
+        facade.log('Adaptee request')
     }
 });
 
 var Adapter = Class({
-    Request: function(param){
-        Adaptee.prototype.SpecificRequest(param);
+    create: function() {
+        facade.log('Adapter created')
     }
 }).mixin(Target, Adaptee);
+
+Adapter.prototype.Request = function(){
+        this.SpecificRequest();
+    }
+
+function init_Adapter() {
+    var f = new Adapter()
+    f.Request()
+}

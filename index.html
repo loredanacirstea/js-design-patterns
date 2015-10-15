@@ -19,31 +19,7 @@
     <script type="text/javascript" src="lib/jsclass/browser/js.class.min.js"></script>
 
     <script type="text/javascript" src="lib/require.js"></script>
-<!--
-    <script type="text/javascript" src="Model/loretek/design_patterns/creational/abstract_factory/AbstractFactory.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/creational/builder/Builder.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/creational/factory/Factory.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/creational/prototype/Prototype.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/creational/singleton/Singleton.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/structural/adapter/Adapter.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/structural/bridge/Bridge.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/structural/composite/Composite.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/structural/decorator/Decorator.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/structural/facade/Facade.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/structural/flyweight/Flyweight.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/structural/proxy/Proxy.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/chain_of_responsibility/ChainofResponsibility.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/command/Command.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/interpreter/Interpreter.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/iterator/Iterator.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/mediator/Mediator.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/memento/Memento.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/observer/Observer.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/state/State.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/strategy/Strategy.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/template_method/TemplateMethod.js"></script>
-    <script type="text/javascript" src="Model/loretek/design_patterns/behavioral/visitor/Visitor.js"></script>
--->
+
     <script type="text/javascript" src="Model/loretek/design_patterns/Facade.js"></script>
 
     <style type="text/css" media="screen">
@@ -71,7 +47,7 @@
             url: url,
             dataType: "script",
             success: function(data){
-                //if(file=="AbstractFactory") console.log(data);
+                //if(file==="Builder") console.log(data);
                 var editor = ace.edit("editor_"+file);
                 editor.setTheme("ace/theme/chrome");
                 editor.getSession().setMode("ace/mode/javascript");
@@ -84,8 +60,11 @@
                 editor.setTheme("ace/theme/chrome");
                 editor.getSession().setMode("ace/mode/javascript");
                 editor.getSession().setUseWrapMode(true);
-                //editor.setReadOnly(true);
-                editor.setValue(disclaimer+"//Not yet",-1);
+                editor.setReadOnly(true);
+                //if(data.status === 200)
+                //    editor.setValue(disclaimer+data.responseText,-1);
+                //else
+                    editor.setValue(disclaimer+"//Not yet",-1);
             }
         });
     }

@@ -1,10 +1,9 @@
 var AbstractClass = Class({
     create: function(){
-        this.created = true;
     },
     TemplateMethod: function(){
-        PrimitiveOperation1();
-        PrimitiveOperation2();
+        this.PrimitiveOperation1();
+        this.PrimitiveOperation2();
     },
     PrimitiveOperation1: function(){
     },
@@ -14,10 +13,17 @@ var AbstractClass = Class({
 
 var ConcreteClass = AbstractClass.extend({
     create: function(){
-        this.created = true;
+        facade.log("ConcreteClass created")
     },
     PrimitiveOperation1: function(){
+        facade.log('ConcreteClass PrimitiveOperation1')
     },
     PrimitiveOperation2: function(){
+        facade.log('ConcreteClass PrimitiveOperation2')
     }  
 });
+
+function init_TemplateMethod() {
+    class1 = new ConcreteClass()
+    class1.TemplateMethod()
+}  

@@ -1,4 +1,16 @@
+require(['Model/loretek/design_patterns/behavioral/visitor/Visitor.js']);
+require(['Model/loretek/design_patterns/behavioral/memento/Memento.js'])
+require(['Model/loretek/design_patterns/behavioral/state/State.js'])
+require(['Model/loretek/design_patterns/behavioral/strategy/Strategy.js'])
+require(['Model/loretek/design_patterns/behavioral/template_method/TemplateMethod.js'])
+require(['Model/loretek/design_patterns/behavioral/chain_of_responsibility/ChainofResponsibility.js']);
+require(['Model/loretek/design_patterns/creational/builder/Builder.js']);
+require(['Model/loretek/design_patterns/creational/prototype/Prototype.js']);
 require(['Model/loretek/design_patterns/creational/singleton/Singleton.js']);
+require(['Model/loretek/design_patterns/structural/proxy/Proxy.js']);
+require(['Model/loretek/design_patterns/structural/decorator/Decorator.js']);
+require(['Model/loretek/design_patterns/structural/composite/Composite.js']);
+require(['Model/loretek/design_patterns/structural/flyweight/Flyweight.js']);
 
 var Facade = Class({
     create: function() {
@@ -19,143 +31,119 @@ var Facade = Class({
     test_dp: function(dp){
         switch(dp){
             case "Facade":
-                this.htmlid = "test_Facade";
-                this.erase();
-                this.log("Facade is already created");
-                break;
+                this.htmlid = "test_Facade"
+                this.erase()
+                this.log("This is the Facade")
+                break
             case "AbstractFactory": 
-                this.htmlid = "test_AbstractFactory";
-                this.erase();
-                var factory1 = new AbstractFactory("ConcreteFactory1");
-                var productB1 = factory1.createProductB();
-                break;
+                this.htmlid = "test_AbstractFactory"
+                this.erase()
+                init_AbstractFactory()
+                break
             case "Builder":
-                this.htmlid = "test_Builder";
-                var dpclass = new Builder();
-                this.erase();
-                this.log("Not yet implemented");
+                this.htmlid = "test_Builder"
+                this.erase()
+                init_Builder()
                 break;
             case "Factory":
-                this.htmlid = "test_Factory";
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Factory"
+                this.erase()
+                init_FactoryMethod()
+                break
             case "Prototype":
-                this.htmlid = "test_Prototype";
-                this.erase();
-                var proto1 = new Prototype("ConcretePrototype1");
-                var clone1 = proto1.Clone();
-                var proto2 = new Prototype("ConcretePrototype2");
-                var clone2 = proto2.Clone();
-                break;
+                this.htmlid = "test_Prototype"
+                this.erase()
+                init_Prototype()
+                break
             case "Singleton":
-                this.htmlid = "test_Singleton";
-                this.erase();
-                var singleton1 = Singleton.instance("data");
-                var singleton2 = Singleton.instance("data");
-                facade.log(singleton1 == singleton2);
-                break;
+                this.htmlid = "test_Singleton"
+                this.erase()
+                init_Singleton()
+                break
             case "Adapter":
-                this.htmlid = "test_Adapter";
-                var dpclass = new Adapter();
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Adapter"
+                this.erase()
+                init_Adapter()
+                break
             case "Bridge":
-                this.htmlid = "test_Bridge";
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Bridge"
+                this.erase()
+                init_Bridge()
+                break
             case "Composite":
-                this.htmlid = "test_Composite";
-                var dpclass = new Composite();
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Composite"
+                this.erase()
+                init_Composite()
+                break
             case "Decorator":
-                this.htmlid = "test_Decorator";
-                var dpclass = new Decorator();
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Decorator"
+                this.erase()
+                init_Decorator()
+                break
             case "Flyweight":
-                this.htmlid = "test_Flyweight";
-                var dpclass = new Flyweight();
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Flyweight"
+                this.erase()
+                init_Flyweight()
+                break
             case "Proxy":
-                this.htmlid = "test_Proxy";
-                var dpclass = new Proxy();
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Proxy"
+                this.erase()
+                init_Proxy()
+                break
             case "ChainofResponsibility":
-                this.htmlid = "test_ChainofResponsibility";
-                this.erase();
-                this.log("Not yet implemented");
-                break;
-
+                this.htmlid = "test_ChainofResponsibility"
+                this.erase()
+                init_ChainofResponsibility()
+                break
             case "Command":
-                this.htmlid = "test_Command";
-                var dpclass = new Command();
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Command"
+                this.erase()
+                init_Command()
+                break
             case "Interpreter":
-                this.htmlid = "test_Interpreter";
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Interpreter"
+                this.erase()
+                init_Interpreter()
+                break
             case "Iterator":
-                this.htmlid = "test_Iterator";
-                var dpclass = new Iterator();
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Iterator"
+                this.erase()
+                init_Iterator()
+                break
             case "Mediator":
-                this.htmlid = "test_Mediator";
-                var dpclass = new Mediator();
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Mediator"
+                this.erase()
+                init_Mediator()
+                break
             case "Memento":
-                this.htmlid = "test_Memento";
-                var dpclass = new Memento();
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Memento"
+                this.erase()
+                init_Memento()
+                break
             case "Observer":
-                this.htmlid = "test_Observer";
-                var dpclass = new Observer();
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Observer"
+                this.erase()
+                init_Observer()
+                break
             case "State":
-                this.htmlid = "test_State";
-                var dpclass = new State();
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_State"
+                this.erase()
+                init_State()
+                break
             case "Strategy":
-                this.htmlid = "test_Strategy";
-                var dpclass = new Strategy();
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_Strategy"
+                this.erase()
+                init_Strategy()
+                break
             case "TemplateMethod":
-                this.htmlid = "test_TemplateMethod";
-                this.erase();
-                this.log("Not yet implemented");
-                break;
+                this.htmlid = "test_TemplateMethod"
+                this.erase()
+                init_TemplateMethod()
+                break
             case "Visitor":
                 this.htmlid = "test_Visitor";
                 this.erase();
-                var visitor1 = new ConcreteVisitor1();
-                var visitor2 = new ConcreteVisitor2();
-                var element = new ConcreteElementA();
-                element.Accept(visitor1);
-                element.Accept(visitor2);
+                init_Visitor()
                 break;
             default:
                 console.log("nothing to test");
